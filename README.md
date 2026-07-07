@@ -2,8 +2,6 @@
 
 A tool-using agent, built with LangChain, that compares a job posting against a resume and produces an honest gap analysis: what matches, what's missing, and concrete suggestions for each gap.
 
-Built as a hands-on LangChain project for FDE interview prep -- specifically to demonstrate actual agent concepts (a model that decides which tools to call and when, in a loop, rather than a fixed sequence of function calls).
-
 ## What makes this an "agent" and not just an API call
 
 A single LLM call that reads a prompt and returns text isn't an agent. This is: the model is given three tools and a goal, and it decides for itself which tools to call, in what order, based on what the user actually gave it (a URL vs. pasted text, a file path vs. pasted resume text) and what it learns from each tool's result. That decision loop is built on LangChain's `create_agent()`, which wraps a LangGraph state machine: model turn -> tool call -> tool result fed back to the model -> model turn again -> ... until it produces a final answer instead of another tool call.

@@ -66,14 +66,3 @@ not a blocker for applying. If you have any exposure to Docker or deployment pip
 worth a short resume line -- otherwise, this is an honest gap rather than something to word
 around.
 ```
-
-## Design decisions worth knowing for an interview
-
-- **Deterministic tool for a task LLMs are bad at.** `score_skill_match` is plain Python string matching, not another LLM call, because reproducible scoring matters more here than flexible interpretation. Worth knowing its real limitation: literal keyword overlap can produce false positives (a resume mentioning "agent" in an unrelated sentence can register as matching "agent framework experience") and false negatives (differently-worded but equivalent experience won't match). The system prompt tells the model to reason around that rather than trust the number blindly.
-- **Tools designed to fail usefully.** Both `fetch_job_posting` and `read_resume_file` return a clear, actionable error message on failure instead of raising an exception or silently returning nothing -- the agent can read that message and correctly ask the user for pasted text instead, rather than getting stuck.
-- **Provider swap via config**, same pattern as the RAG project: `models.py` has one factory function returning whichever LangChain chat model matches `LLM_PROVIDER`. The agent code in `agent.py` never touches provider-specific logic.
-- **Honesty over flattery, by explicit instruction.** The system prompt directly tells the model not to suggest padding a resume with skills the candidate doesn't have, and to say plainly when a match is weak. Worth mentioning in an interview as an example of steering model behavior with prompting rather than post-hoc filtering.
-
-## What's next
-
-This is the standalone LangChain project from the FDE prep roadmap. LangGraph (more explicit control over the agent's steps/state) and CrewAI (multiple named agents collaborating) are the other two frameworks worth being conversationally familiar with, even without a full project in each.

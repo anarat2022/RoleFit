@@ -1,0 +1,34 @@
+SAMPLE RESUME -- replace this file with your own (export from Word/Google Docs as plain text)
+
+Jane Candidate
+jane.candidate@email.com | linkedin.com/in/janecandidate | github.com/janecandidate
+
+SUMMARY
+Software engineer with experience building data pipelines, internal dashboards, and one
+production RAG application. Comfortable with Python and SQL, currently building hands-on
+experience with LLM APIs and agent frameworks.
+
+PROJECTS
+SEC 10-K RAG Assistant
+- Built a Retrieval-Augmented Generation pipeline in Python (ChromaDB, LLM APIs) that grounds
+  answers in SEC 10-K filings across 3 companies, scoring 83.64% on an automated 11-question
+  LLM-as-judge evaluation benchmark.
+- Designed a provider-agnostic architecture using abstract interfaces and factory functions,
+  supporting Gemini, OpenAI, and locally-hosted Ollama models via a single config change.
+
+StreamPick (mobile app)
+- Built and shipped two Claude-powered features (Haiku, direct REST API) in a production React
+  Native app: a multi-turn conversational recommendation agent and a structured-output content
+  generator, including a mid-development provider migration from Gemini after hitting rate limits.
+
+EXPERIENCE
+Growth Guild -- Marketing Automation (part-time / freelance)
+- Built webhook-based integrations connecting marketing tools, automating lead handoff between
+  systems.
+
+ClubCapital -- Data & Reporting (part-time / freelance)
+- Built SQL-based dashboards and reporting for client financial data.
+
+SKILLS
+Python, SQL, REST APIs, ChromaDB, vector search, prompt engineering, Gemini API, OpenAI API,
+Claude/Anthropic API, Streamlit, Git/GitHub, React Native, TypeScript
